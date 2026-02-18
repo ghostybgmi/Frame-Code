@@ -4,6 +4,7 @@ import { Quote, Star } from 'lucide-react';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { ImageWithFallback } from './figma/ImageWithFallback';
+import { useTheme } from '../context/ThemeContext';
 
 const testimonials = [
   {
@@ -49,6 +50,8 @@ const testimonials = [
 ];
 
 export function Testimonials() {
+  const { theme } = useTheme();
+  
   const settings = {
     dots: true,
     infinite: true,
@@ -58,6 +61,7 @@ export function Testimonials() {
     autoplay: true,
     autoplaySpeed: 5000,
     pauseOnHover: true,
+    arrows: false,
     responsive: [
       {
         breakpoint: 1024,
@@ -71,25 +75,33 @@ export function Testimonials() {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
+          centerMode: false,
+          variableWidth: false,
         }
       }
     ],
-    appendDots: (dots: any) => (
-      <div style={{ bottom: '-50px' }}>
-        <ul className="flex items-center justify-center gap-2">
-          {dots}
-        </ul>
-      </div>
-    ),
     customPaging: () => (
-      <div className="w-3 h-3 bg-slate-600 rounded-full hover:bg-indigo-600 transition-colors duration-200" />
+      <div className={`w-2 h-2 rounded-full transition-all duration-300 ${
+        theme === 'dark' ? 'bg-slate-700' : 'bg-gray-300'
+      }`} />
+    ),
+    appendDots: (dots: React.ReactNode) => (
+      <div style={{ bottom: '-40px' }}>
+        <ul className="flex items-center justify-center gap-2"> {dots} </ul>
+      </div>
     ),
   };
 
   return (
-    <section className="py-24 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 relative overflow-hidden">
+    <section className={`py-24 relative overflow-hidden transition-colors duration-500 ${
+      theme === 'dark'
+        ? 'bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950'
+        : 'bg-gradient-to-b from-white via-gray-50 to-white'
+    }`}>
       {/* Background decoration */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-indigo-600/10 rounded-full blur-3xl" />
+      <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full blur-3xl ${
+        theme === 'dark' ? 'bg-indigo-600/10' : 'bg-indigo-400/20'
+      }`} />
       
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         <motion.div
@@ -99,13 +111,21 @@ export function Testimonials() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 mb-4">
-            <span className="text-sm font-semibold">Testimonials</span>
+          <div className={`inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border mb-4 ${
+            theme === 'dark'
+              ? 'bg-indigo-500/10 border-indigo-500/20 text-indigo-400'
+              : 'bg-indigo-100 border-indigo-200 text-indigo-700'
+          }`}>
+            <span className="text-xs sm:text-sm font-semibold">Testimonials</span>
           </div>
-          <h2 className="text-5xl md:text-6xl font-bold text-white mb-6">
+          <h2 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 px-4 transition-colors duration-500 ${
+            theme === 'dark' ? 'text-white' : 'text-gray-900'
+          }`}>
             What Our <span className="bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent">Clients Say</span>
           </h2>
-          <p className="text-xl text-slate-400 max-w-2xl mx-auto">
+          <p className={`text-base sm:text-lg md:text-xl max-w-2xl mx-auto px-4 transition-colors duration-500 ${
+            theme === 'dark' ? 'text-slate-400' : 'text-gray-600'
+          }`}>
             Trusted by industry leaders and innovative startups
           </p>
         </motion.div>
@@ -119,29 +139,35 @@ export function Testimonials() {
         >
           <Slider {...settings}>
             {testimonials.map((testimonial, index) => (
-              <div key={index} className="px-4">
+              <div key={index} className="px-3 sm:px-4">
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   whileHover={{ y: -10 }}
-                  className="h-full bg-slate-800/40 backdrop-blur-xl rounded-[24px] p-8 border border-slate-700/50 hover:border-indigo-500/50 shadow-lg hover:shadow-indigo-500/20 transition-all duration-300 relative overflow-hidden"
+                  className={`h-full rounded-[24px] p-6 sm:p-8 border shadow-lg transition-all duration-300 relative overflow-hidden ${
+                    theme === 'dark'
+                      ? 'bg-slate-800/40 backdrop-blur-xl border-slate-700/50 hover:border-indigo-500/50 hover:shadow-indigo-500/20'
+                      : 'bg-white/80 backdrop-blur-xl border-gray-200 hover:border-indigo-500/50 hover:shadow-indigo-200/50'
+                  }`}
                 >
                   {/* Quote icon */}
                   <div className="absolute top-6 right-6 opacity-5">
-                    <Quote className="w-16 h-16 text-indigo-600" />
+                    <Quote className={`w-16 h-16 ${theme === 'dark' ? 'text-indigo-600' : 'text-indigo-400'}`} />
                   </div>
 
                   {/* Rating */}
                   <div className="flex gap-1 mb-4">
                     {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
+                      <Star key={i} className="w-4 h-4 sm:w-5 sm:h-5 fill-yellow-400 text-yellow-400" />
                     ))}
                   </div>
 
                   {/* Content */}
-                  <p className="text-slate-300 mb-6 leading-relaxed relative z-10">
+                  <p className={`mb-6 leading-relaxed relative z-10 text-sm sm:text-base transition-colors duration-500 ${
+                    theme === 'dark' ? 'text-slate-300' : 'text-gray-700'
+                  }`}>
                     "{testimonial.content}"
                   </p>
 
@@ -150,20 +176,28 @@ export function Testimonials() {
                     <motion.div
                       whileHover={{ scale: 1.1 }}
                       transition={{ duration: 0.3 }}
-                      className="relative"
+                      className="relative flex-shrink-0"
                     >
                       <ImageWithFallback
                         src={testimonial.avatar}
                         alt={testimonial.name}
-                        className="w-14 h-14 rounded-full object-cover ring-4 ring-indigo-500/30"
+                        className={`w-12 h-12 sm:w-14 sm:h-14 rounded-full object-cover ring-4 ${
+                          theme === 'dark' ? 'ring-indigo-500/30' : 'ring-indigo-400/30'
+                        }`}
                       />
-                      <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-green-500 rounded-full border-2 border-slate-800" />
+                      <div className={`absolute -bottom-1 -right-1 w-5 h-5 bg-green-500 rounded-full border-2 ${
+                        theme === 'dark' ? 'border-slate-800' : 'border-white'
+                      }`} />
                     </motion.div>
                     <div>
-                      <div className="font-bold text-white">
+                      <div className={`font-bold transition-colors duration-500 ${
+                        theme === 'dark' ? 'text-white' : 'text-gray-900'
+                      }`}>
                         {testimonial.name}
                       </div>
-                      <div className="text-sm text-slate-400">
+                      <div className={`text-xs sm:text-sm transition-colors duration-500 ${
+                        theme === 'dark' ? 'text-slate-400' : 'text-gray-600'
+                      }`}>
                         {testimonial.role}
                       </div>
                       <div className="text-xs text-indigo-400 font-semibold">
@@ -173,7 +207,11 @@ export function Testimonials() {
                   </div>
 
                   {/* Soft glow */}
-                  <div className="absolute inset-0 rounded-[24px] opacity-0 hover:opacity-100 transition-opacity duration-300 shadow-[inset_0_0_20px_rgba(99,102,241,0.1)]" />
+                  <div className={`absolute inset-0 rounded-[24px] opacity-0 hover:opacity-100 transition-opacity duration-300 ${
+                    theme === 'dark'
+                      ? 'shadow-[inset_0_0_20px_rgba(99,102,241,0.1)]'
+                      : 'shadow-[inset_0_0_20px_rgba(99,102,241,0.05)]'
+                  }`} />
                 </motion.div>
               </div>
             ))}
@@ -188,6 +226,32 @@ export function Testimonials() {
         .slick-dots li.slick-active div {
           background-color: #6366f1 !important;
           transform: scale(1.2);
+        }
+        .slick-slider {
+          overflow: visible;
+        }
+        .slick-list {
+          overflow: hidden;
+          padding: 0 !important;
+        }
+        .slick-track {
+          display: flex;
+          gap: 0;
+        }
+        .slick-slide {
+          height: auto;
+        }
+        .slick-slide > div {
+          height: 100%;
+        }
+        @media (max-width: 640px) {
+          .slick-list {
+            margin: 0 -12px;
+            padding: 0 12px !important;
+          }
+          .slick-slide {
+            padding: 0;
+          }
         }
       `}</style>
     </section>

@@ -113,19 +113,19 @@ export function WhyChooseUs() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full border mb-4 ${
+          <div className={`inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border mb-4 ${
             theme === 'dark'
               ? 'bg-indigo-500/10 border-indigo-500/20 text-indigo-400'
               : 'bg-indigo-100 border-indigo-200 text-indigo-700'
           }`}>
-            <span className="text-sm font-semibold">Why Choose Us</span>
+            <span className="text-xs sm:text-sm font-semibold">Why Choose Us</span>
           </div>
-          <h2 className={`text-5xl md:text-6xl font-bold mb-6 transition-colors duration-500 ${
+          <h2 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 px-4 transition-colors duration-500 ${
             theme === 'dark' ? 'text-white' : 'text-gray-900'
           }`}>
             We Deliver <span className="bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent">Excellence</span>
           </h2>
-          <p className={`text-xl max-w-2xl mx-auto transition-colors duration-500 ${
+          <p className={`text-base sm:text-lg md:text-xl max-w-2xl mx-auto px-4 transition-colors duration-500 ${
             theme === 'dark' ? 'text-slate-400' : 'text-gray-600'
           }`}>
             Trusted by startups and enterprises worldwide
@@ -133,7 +133,7 @@ export function WhyChooseUs() {
         </motion.div>
 
         {/* Stats with Glassmorphism */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6 mb-16 sm:mb-20">
           {stats.map((stat, index) => (
             <motion.div
               key={index}
@@ -144,7 +144,7 @@ export function WhyChooseUs() {
               whileHover={{ y: -10 }}
               className="relative group"
             >
-              <div className={`relative h-full p-8 backdrop-blur-xl rounded-[24px] border shadow-lg transition-all duration-300 overflow-hidden text-center ${
+              <div className={`relative h-full p-4 sm:p-6 lg:p-8 backdrop-blur-xl rounded-[20px] sm:rounded-[24px] border shadow-lg transition-all duration-300 overflow-hidden text-center ${
                 theme === 'dark'
                   ? 'bg-slate-800/40 border-slate-700/50 hover:border-indigo-500/50 hover:shadow-indigo-500/20'
                   : 'bg-white/80 border-gray-200 hover:border-indigo-500/50 hover:shadow-indigo-200/50'
@@ -163,18 +163,18 @@ export function WhyChooseUs() {
                 <motion.div
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.3 }}
-                  className={`inline-flex w-16 h-16 bg-gradient-to-br ${stat.gradient} rounded-2xl items-center justify-center mb-6 shadow-lg relative z-10`}
+                  className={`inline-flex w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-gradient-to-br ${stat.gradient} rounded-xl sm:rounded-2xl items-center justify-center mb-3 sm:mb-4 lg:mb-6 shadow-lg relative z-10`}
                 >
-                  <stat.icon className="w-8 h-8 text-white" />
+                  <stat.icon className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-white" />
                 </motion.div>
 
                 {/* Counter */}
-                <div className={`text-5xl font-bold mb-3 bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent relative z-10`}>
+                <div className={`text-3xl sm:text-4xl lg:text-5xl font-bold mb-2 sm:mb-3 bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent relative z-10`}>
                   <Counter value={stat.value} suffix={stat.suffix} />
                 </div>
 
                 {/* Label */}
-                <div className={`font-semibold relative z-10 transition-colors duration-500 ${
+                <div className={`text-xs sm:text-sm lg:text-base font-semibold relative z-10 transition-colors duration-500 ${
                   theme === 'dark' ? 'text-slate-400' : 'text-gray-600'
                 }`}>
                   {stat.label}

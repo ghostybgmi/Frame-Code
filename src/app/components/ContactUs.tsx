@@ -122,15 +122,15 @@ export function ContactUs() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full backdrop-blur-xl border mb-4 ${
+          <div className={`inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full backdrop-blur-xl border mb-4 ${
             theme === 'dark'
               ? 'bg-indigo-500/10 border-indigo-500/20 text-indigo-400'
               : 'bg-indigo-100 border-indigo-200 text-indigo-700'
           }`}>
-            <Mail className="w-4 h-4" />
-            <span className="text-sm font-semibold">Get in Touch</span>
+            <Mail className="w-3 h-3 sm:w-4 sm:h-4" />
+            <span className="text-xs sm:text-sm font-semibold">Get in Touch</span>
           </div>
-          <h2 className={`text-5xl md:text-6xl font-bold mb-6 transition-colors duration-500 ${
+          <h2 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 px-4 transition-colors duration-500 ${
             theme === 'dark' ? 'text-white' : 'text-gray-900'
           }`}>
             Let's Start Your{' '}
@@ -138,7 +138,7 @@ export function ContactUs() {
               Project
             </span>
           </h2>
-          <p className={`text-xl max-w-2xl mx-auto transition-colors duration-500 ${
+          <p className={`text-base sm:text-lg md:text-xl max-w-2xl mx-auto px-4 transition-colors duration-500 ${
             theme === 'dark' ? 'text-slate-400' : 'text-gray-600'
           }`}>
             Tell us about your project and we'll get back to you within 24 hours
@@ -150,13 +150,13 @@ export function ContactUs() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className={`rounded-[32px] p-8 md:p-12 border shadow-2xl transition-all duration-500 ${
+          className={`rounded-[24px] sm:rounded-[32px] p-6 sm:p-8 md:p-12 border shadow-2xl transition-all duration-500 ${
             theme === 'dark'
               ? 'bg-slate-800/40 backdrop-blur-xl border-slate-700/50 shadow-indigo-500/10'
               : 'bg-white/80 backdrop-blur-xl border-gray-200 shadow-indigo-200/30'
           }`}
         >
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form onSubmit={handleSubmit} className="space-y-5 sm:space-y-6">
             {/* Name Field */}
             <div>
               <label htmlFor="name" className={`flex items-center gap-2 mb-2 font-semibold transition-colors duration-500 ${

@@ -72,26 +72,26 @@ export function Services() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full border mb-4 ${
+          <div className={`inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border mb-4 ${
             theme === 'dark'
               ? 'bg-indigo-500/10 border-indigo-500/20 text-indigo-400'
               : 'bg-indigo-100 border-indigo-200 text-indigo-700'
           }`}>
-            <span className="text-sm font-semibold">Our Services</span>
+            <span className="text-xs sm:text-sm font-semibold">Our Services</span>
           </div>
-          <h2 className={`text-5xl md:text-6xl font-bold mb-6 transition-colors duration-500 ${
+          <h2 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 px-4 transition-colors duration-500 ${
             theme === 'dark' ? 'text-white' : 'text-gray-900'
           }`}>
             What We <span className="bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent">Offer</span>
           </h2>
-          <p className={`text-xl max-w-2xl mx-auto transition-colors duration-500 ${
+          <p className={`text-base sm:text-lg md:text-xl max-w-2xl mx-auto px-4 transition-colors duration-500 ${
             theme === 'dark' ? 'text-slate-400' : 'text-gray-600'
           }`}>
             End-to-end digital solutions tailored to your business needs
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {services.map((service, index) => (
             <motion.div
               key={index}

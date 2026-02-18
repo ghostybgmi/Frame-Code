@@ -155,7 +155,7 @@ export function Navbar() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: index * 0.1 }}
                 onClick={() => setIsOpen(false)}
-                className={`block py-3 transition-colors duration-200 ${
+                className={`block py-3 font-medium transition-colors duration-200 ${
                   theme === 'dark' 
                     ? 'text-slate-400 hover:text-white' 
                     : 'text-gray-600 hover:text-gray-900'

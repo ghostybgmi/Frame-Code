@@ -71,19 +71,19 @@ export function Process() {
           transition={{ duration: 0.6 }}
           className="text-center mb-20"
         >
-          <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full backdrop-blur-xl border mb-4 ${
+          <div className={`inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full backdrop-blur-xl border mb-4 ${
             theme === 'dark'
               ? 'bg-indigo-500/10 border-indigo-500/20 text-indigo-400'
               : 'bg-indigo-100 border-indigo-200 text-indigo-700'
           }`}>
-            <span className="text-sm font-semibold">Our Process</span>
+            <span className="text-xs sm:text-sm font-semibold">Our Process</span>
           </div>
-          <h2 className={`text-5xl md:text-6xl font-bold mb-6 transition-colors duration-500 ${
+          <h2 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 px-4 transition-colors duration-500 ${
             theme === 'dark' ? 'text-white' : 'text-gray-900'
           }`}>
             How We <span className="bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent">Work</span>
           </h2>
-          <p className={`text-xl max-w-2xl mx-auto transition-colors duration-500 ${
+          <p className={`text-base sm:text-lg md:text-xl max-w-2xl mx-auto px-4 transition-colors duration-500 ${
             theme === 'dark' ? 'text-slate-400' : 'text-gray-600'
           }`}>
             A streamlined process designed for success
@@ -184,7 +184,20 @@ export function Process() {
 
                 {/* Connector line for mobile */}
                 {index < steps.length - 1 && (
-                  <div className="lg:hidden absolute left-1/2 top-20 w-1 h-32 bg-gradient-to-b from-indigo-600 to-violet-600 transform -translate-x-1/2" />
+                  <div className="md:hidden absolute left-1/2 -translate-x-1/2 bottom-0 w-0.5 h-8 -mb-8 z-0">
+                    {/* Base line */}
+                    <div className={`absolute inset-0 ${
+                      theme === 'dark' ? 'bg-slate-700' : 'bg-gray-300'
+                    }`} />
+                    {/* Animated gradient line */}
+                    <motion.div
+                      className="absolute inset-0 bg-gradient-to-b from-indigo-500 to-violet-500"
+                      initial={{ scaleY: 0 }}
+                      animate={isInView ? { scaleY: 1 } : { scaleY: 0 }}
+                      transition={{ duration: 0.8, delay: index * 0.2 }}
+                      style={{ transformOrigin: 'top' }}
+                    />
+                  </div>
                 )}
               </motion.div>
             ))}

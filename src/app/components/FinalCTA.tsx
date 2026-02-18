@@ -1,9 +1,16 @@
 import { motion } from 'motion/react';
 import { ArrowRight, Mail, MessageCircle } from 'lucide-react';
+import { useTheme } from '../context/ThemeContext';
 
 export function FinalCTA() {
+  const { theme } = useTheme();
+  
   return (
-    <section className="relative py-32 overflow-hidden bg-gradient-to-br from-slate-950 via-indigo-950 to-slate-900">
+    <section className={`relative py-24 sm:py-32 overflow-hidden transition-colors duration-500 ${
+      theme === 'dark'
+        ? 'bg-gradient-to-br from-slate-950 via-indigo-950 to-slate-900'
+        : 'bg-gradient-to-br from-gray-100 via-indigo-100 to-gray-50'
+    }`}>
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
@@ -76,9 +83,13 @@ export function FinalCTA() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-500/10 backdrop-blur-xl border border-indigo-500/20 text-indigo-400 mb-8"
+            className={`inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full backdrop-blur-xl border mb-6 sm:mb-8 ${
+              theme === 'dark'
+                ? 'bg-indigo-500/10 border-indigo-500/20 text-indigo-400'
+                : 'bg-indigo-100 border-indigo-200 text-indigo-700'
+            }`}
           >
-            <span className="text-sm font-semibold">Ready to Transform Your Business?</span>
+            <span className="text-xs sm:text-sm font-semibold">Ready to Transform Your Business?</span>
           </motion.div>
 
           <motion.h2
@@ -86,7 +97,9 @@ export function FinalCTA() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight"
+            className={`text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4 sm:mb-6 leading-tight px-4 transition-colors duration-500 ${
+              theme === 'dark' ? 'text-white' : 'text-gray-900'
+            }`}
           >
             Let's Build Something
             <br />
@@ -100,7 +113,9 @@ export function FinalCTA() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-xl md:text-2xl text-slate-400 mb-12 max-w-3xl mx-auto leading-relaxed"
+            className={`text-base sm:text-lg md:text-xl lg:text-2xl mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed px-4 transition-colors duration-500 ${
+              theme === 'dark' ? 'text-slate-400' : 'text-gray-600'
+            }`}
           >
             Join 50+ successful companies that trust us to deliver exceptional digital experiences. 
             Let's discuss your project and make your vision a reality.
@@ -111,7 +126,7 @@ export function FinalCTA() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4"
+            className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4"
           >
             <motion.button
               whileHover={{ 
@@ -119,7 +134,7 @@ export function FinalCTA() {
                 boxShadow: "0 0 40px rgba(99, 102, 241, 0.4)" 
               }}
               whileTap={{ scale: 0.95 }}
-              className="group relative px-10 py-5 bg-gradient-to-r from-indigo-600 to-violet-600 text-white rounded-2xl overflow-hidden shadow-2xl shadow-indigo-500/30 transition-all duration-300"
+              className="group relative w-full sm:w-auto px-8 sm:px-10 py-4 sm:py-5 bg-gradient-to-r from-indigo-600 to-violet-600 text-white rounded-2xl overflow-hidden shadow-2xl shadow-indigo-500/30 transition-all duration-300"
             >
               <motion.div
                 className="absolute inset-0 bg-gradient-to-r from-indigo-400 to-violet-400"
@@ -127,19 +142,23 @@ export function FinalCTA() {
                 whileHover={{ opacity: 1 }}
                 transition={{ duration: 0.3 }}
               />
-              <span className="relative flex items-center gap-3 text-lg font-bold">
-                <Mail className="w-6 h-6" />
+              <span className="relative flex items-center justify-center gap-2 sm:gap-3 text-base sm:text-lg font-bold">
+                <Mail className="w-5 h-5 sm:w-6 sm:h-6" />
                 Get Started Now
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
               </span>
             </motion.button>
 
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-10 py-5 bg-transparent backdrop-blur-xl text-white rounded-2xl border border-slate-700 hover:border-indigo-500/50 hover:bg-indigo-500/5 transition-all duration-300 font-bold text-lg shadow-lg flex items-center gap-3"
+              className={`w-full sm:w-auto px-8 sm:px-10 py-4 sm:py-5 bg-transparent backdrop-blur-xl rounded-2xl border font-bold text-base sm:text-lg shadow-lg flex items-center justify-center gap-2 sm:gap-3 transition-all duration-300 ${
+                theme === 'dark'
+                  ? 'text-white border-slate-700 hover:border-indigo-500/50 hover:bg-indigo-500/5'
+                  : 'text-gray-900 border-gray-300 hover:border-indigo-500/50 hover:bg-indigo-5'
+              }`}
             >
-              <MessageCircle className="w-6 h-6" />
+              <MessageCircle className="w-5 h-5 sm:w-6 sm:h-6" />
               Schedule a Call
             </motion.button>
           </motion.div>
@@ -150,7 +169,9 @@ export function FinalCTA() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="mt-16 flex flex-wrap items-center justify-center gap-8 text-slate-500 text-sm"
+            className={`mt-12 sm:mt-16 flex flex-col sm:flex-row flex-wrap items-center justify-center gap-4 sm:gap-8 text-xs sm:text-sm transition-colors duration-500 ${
+              theme === 'dark' ? 'text-slate-500' : 'text-gray-500'
+            }`}
           >
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
