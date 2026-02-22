@@ -44,12 +44,12 @@ export function Navbar() {
             className="flex items-center gap-2"
           >
             <div className="w-10 h-10 bg-gradient-to-br from-indigo-600 to-violet-600 rounded-xl flex items-center justify-center shadow-lg shadow-indigo-500/30">
-              <span className="text-white font-bold text-xl">D</span>
+              <span className="text-white font-bold text-xl">FC</span>
             </div>
             <span className={`text-xl font-bold transition-colors duration-500 ${
               theme === 'dark' ? 'text-white' : 'text-gray-900'
             }`}>
-              Digital<span className="text-indigo-400">Agency</span>
+              Frame & <span className="text-indigo-400">Code</span>
             </span>
           </motion.div>
 
