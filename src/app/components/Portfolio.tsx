@@ -1,5 +1,4 @@
 import { motion } from 'motion/react';
-import { ExternalLink } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { useTheme } from '../context/ThemeContext';
 
@@ -11,6 +10,7 @@ const projects = [
   tags: ['Angular', 'Java', 'JWT','REST APIs'],
   // gradient: 'from-blue-600 to-cyan-600',
   image: '/images/citizen-portal.png',
+  link: 'https://apps.mgov.gov.in',
 },
 {
   title: 'NCS - National Career Service',
@@ -19,6 +19,7 @@ const projects = [
   tags: ['Angular', 'Java', 'RxJS', 'REST APIs'],
   // gradient: 'from-indigo-600 to-violet-600',
   image: '/images/ncs.png',
+  link:'https://betacloud.ncs.gov.in'
 },
 {
   title: 'KNK Aquarium E-Commerce',
@@ -27,6 +28,7 @@ const projects = [
   tags: ['React', 'Node.js', 'MySQL', 'OAuth'],
   // gradient: 'from-emerald-600 to-teal-600',
   image: '/images/knk.png',
+  link:'https://knkaquarium.com'
 },
 
 ];
@@ -83,7 +85,8 @@ export function Portfolio() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="group relative"
+              className="group relative cursor-pointer"
+              onClick={() => window.open(project.link, '_blank')}
             >
               <div className={`relative h-full backdrop-blur-xl rounded-[24px] overflow-hidden shadow-lg border transition-all duration-300 ${
                 theme === 'dark'
@@ -114,13 +117,13 @@ export function Portfolio() {
                     whileHover={{ opacity: 1 }}
                     className={`absolute inset-0 bg-gradient-to-br  opacity-90 flex items-center justify-center`}
                   >
-                    <motion.div
+                    {/* <motion.div
                       initial={{ scale: 0.8, opacity: 0 }}
                       whileHover={{ scale: 1, opacity: 1 }}
                       transition={{ duration: 0.3 }}
                     >
                       <ExternalLink className="w-12 h-12 text-white" />
-                    </motion.div>
+                    </motion.div> */}
                   </motion.div>
                 </div>
 
