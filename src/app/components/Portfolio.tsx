@@ -4,54 +4,31 @@ import { ImageWithFallback } from './figma/ImageWithFallback';
 import { useTheme } from '../context/ThemeContext';
 
 const projects = [
-  {
-    title: 'E-Commerce Platform',
-    category: 'Full Stack Development',
-    description: 'Modern shopping experience with real-time inventory and AI recommendations.',
-    tags: ['React', 'Node.js', 'MongoDB', 'Stripe'],
-    gradient: 'from-blue-600 to-cyan-600',
-    imageQuery: 'modern ecommerce website dashboard',
-  },
-  {
-    title: 'SaaS Dashboard',
-    category: 'Frontend & UI/UX',
-    description: 'Analytics dashboard with beautiful data visualizations and insights.',
-    tags: ['Vue.js', 'D3.js', 'Tailwind', 'TypeScript'],
-    gradient: 'from-indigo-600 to-violet-600',
-    imageQuery: 'data analytics dashboard interface',
-  },
-  {
-    title: 'FinTech Mobile App',
-    category: 'Mobile Development',
-    description: 'Secure banking app with biometric authentication and instant transfers.',
-    tags: ['React Native', 'Firebase', 'Plaid API'],
-    gradient: 'from-emerald-600 to-teal-600',
-    imageQuery: 'fintech mobile app interface',
-  },
-  {
-    title: 'AI Content Generator',
-    category: 'AI & Backend',
-    description: 'Intelligent content creation platform powered by advanced AI models.',
-    tags: ['Python', 'OpenAI', 'FastAPI', 'PostgreSQL'],
-    gradient: 'from-orange-600 to-red-600',
-    imageQuery: 'ai artificial intelligence interface',
-  },
-  {
-    title: 'Healthcare Portal',
-    category: 'Web Application',
-    description: 'Patient management system with telemedicine and appointment scheduling.',
-    tags: ['Angular', 'Django', 'WebRTC', 'HIPAA'],
-    gradient: 'from-violet-600 to-purple-600',
-    imageQuery: 'healthcare medical dashboard',
-  },
-  {
-    title: 'Real Estate Platform',
-    category: 'Full Stack & SEO',
-    description: 'Property listing platform with virtual tours and advanced search.',
-    tags: ['Next.js', 'Prisma', 'SEO', 'Maps API'],
-    gradient: 'from-indigo-600 to-blue-600',
-    imageQuery: 'luxury real estate website',
-  },
+{
+  title: 'Citizen Portal Gov.in',
+  category: 'Full Stack Development',
+  description: 'Scalable government application portal serving lakhs of users with secure OTP + JWT authentication, RBAC-based access control, and performance-optimized Angular architecture.',
+  tags: ['Angular', 'Java', 'JWT','REST APIs'],
+  // gradient: 'from-blue-600 to-cyan-600',
+  image: '/images/citizen-portal.png',
+},
+{
+  title: 'NCS - National Career Service',
+  category: 'Frontend & UI/UX',
+  description: 'Built secure employer and jobseeker authentication flows with route guards, dynamic job posting modules, real-time validation (PAN, GST, Postal APIs), and responsive dashboard interfaces.',
+  tags: ['Angular', 'Java', 'RxJS', 'REST APIs'],
+  // gradient: 'from-indigo-600 to-violet-600',
+  image: '/images/ncs.png',
+},
+{
+  title: 'KNK Aquarium E-Commerce',
+  category: 'Full Stack Development',
+  description: 'Custom-built e-commerce platform with dynamic product catalog, OAuth authentication, admin dashboard, order tracking, and optimized MySQL-backed architecture.',
+  tags: ['React', 'Node.js', 'MySQL', 'OAuth'],
+  // gradient: 'from-emerald-600 to-teal-600',
+  image: '/images/knk.png',
+},
+
 ];
 
 export function Portfolio() {
@@ -125,7 +102,7 @@ export function Portfolio() {
                     className="w-full h-full"
                   >
                     <ImageWithFallback
-                      src={`https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80`}
+                      src={project.image}
                       alt={project.title}
                       className="w-full h-full object-cover"
                     />
@@ -135,7 +112,7 @@ export function Portfolio() {
                   <motion.div
                     initial={{ opacity: 0 }}
                     whileHover={{ opacity: 1 }}
-                    className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-90 flex items-center justify-center`}
+                    className={`absolute inset-0 bg-gradient-to-br  opacity-90 flex items-center justify-center`}
                   >
                     <motion.div
                       initial={{ scale: 0.8, opacity: 0 }}
@@ -149,7 +126,7 @@ export function Portfolio() {
 
                 {/* Content */}
                 <div className="p-6">
-                  <div className={`text-sm font-semibold bg-gradient-to-r ${project.gradient} bg-clip-text text-transparent mb-2`}>
+                  <div className={`text-sm font-semibold bg-gradient-to-r  bg-clip-text text-transparent mb-2`}>
                     {project.category}
                   </div>
                   <h3 className={`text-2xl font-bold mb-3 transition-colors duration-500 ${
@@ -191,13 +168,13 @@ export function Portfolio() {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="text-center mt-12"
         >
-          <motion.button
+          {/* <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="px-8 py-4 bg-gradient-to-r from-indigo-600 to-violet-600 text-white rounded-2xl font-semibold shadow-lg shadow-indigo-500/30 hover:shadow-indigo-500/50 transition-all duration-300"
           >
             View All Projects
-          </motion.button>
+          </motion.button> */}
         </motion.div>
       </div>
     </section>
