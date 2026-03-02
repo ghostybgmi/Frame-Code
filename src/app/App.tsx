@@ -1,5 +1,3 @@
-import { ThemeProvider } from './context/ThemeContext';
-import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { Services } from './components/Services';
 import { Portfolio } from './components/Portfolio';
@@ -9,13 +7,17 @@ import { Testimonials } from './components/Testimonials';
 import { ContactUs } from './components/ContactUs';
 import { FinalCTA } from './components/FinalCTA';
 import { Footer } from './components/Footer';
+import { Navbar } from './components/Navbar';
+import { ThemeProvider } from './context/ThemeContext';
 
-export default function App() {
+function App() {
   return (
     <ThemeProvider>
-      <div className="min-h-screen overflow-x-hidden" style={{ fontFamily: 'Inter, sans-serif' }}>
+      <div className="min-h-screen transition-colors duration-500">
         <Navbar />
-        <Hero />
+        <div id="home">
+          <Hero />
+        </div>
         <div id="services">
           <Services />
         </div>
@@ -29,10 +31,14 @@ export default function App() {
           <WhyChooseUs />
         </div>
         <Testimonials />
-        <ContactUs />
+        <div id="contact">
+          <ContactUs />
+        </div>
         <FinalCTA />
         <Footer />
       </div>
     </ThemeProvider>
   );
 }
+
+export default App;
