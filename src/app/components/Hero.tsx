@@ -82,7 +82,7 @@ export function Hero() {
       <div className="absolute inset-0 overflow-hidden">
         <motion.div 
           className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] rounded-full blur-[150px] ${
-            theme === 'dark' ? 'bg-white/[0.03]' : 'bg-gray-900/[0.04]'
+            theme === 'dark' ? 'bg-white/[0.03]' : 'bg-indigo-900/[0.04]'
           }`}
           animate={{
             scale: [1, 1.2, 1],
@@ -100,8 +100,8 @@ export function Hero() {
       <motion.div
         className={`absolute top-20 left-20 w-72 h-72 rounded-[50px] backdrop-blur-2xl border hidden lg:block shadow-2xl ${
           theme === 'dark'
-            ? 'bg-gradient-to-br from-gray-800/40 to-gray-900/40 border-gray-700/30'
-            : 'bg-gradient-to-br from-white/60 to-gray-100/60 border-gray-300/40'
+            ? 'bg-gradient-to-br from-gray-800/40 to-indigo-900/40 border-white/30'
+            : 'bg-gradient-to-br from-indigo-600/60 to-indigo-100/60 border-indigo-300/40'
         }`}
         style={{ rotateX, rotateY, transformStyle: 'preserve-3d' }}
         animate={{ y: [0, -40, 0], rotateZ: [0, 8, 0] }}
@@ -112,7 +112,7 @@ export function Hero() {
       {floatingIcons.map(({ Icon, delay, duration }, idx) => (
         <motion.div
           key={idx}
-          className={`absolute hidden xl:block ${theme === 'dark' ? 'text-gray-700' : 'text-gray-400'}`}
+          className={`absolute hidden xl:block ${theme === 'dark' ? 'text-indigo-600' : 'text-indigo-600'}`}
           style={{ top: `${20 + idx * 25}%`, right: `${10 + idx * 15}%` }}
           animate={{ y: [0, -30, 0], x: [0, 15, 0], rotate: [0, 360], opacity: [0.2, 0.4, 0.2] }}
           transition={{ duration, repeat: Infinity, ease: "easeInOut", delay }}
@@ -137,7 +137,7 @@ export function Hero() {
             animate={{ rotate: 360 }} 
             transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}
           >
-            <Sparkles className={`w-4 h-4 ${theme === 'dark' ? 'text-gray-300' : 'text-gray-700'}`} />
+            <Sparkles className={`w-4 h-4 ${theme === 'dark' ? 'text-white' : 'text-indigo-700'}`} />
           </motion.div>
           <span className={`text-sm font-semibold ${theme === 'dark' ? 'text-gray-200' : 'text-gray-800'}`}>
             Welcome to Frame & Code
@@ -149,15 +149,15 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
           className={`text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-6 leading-[1.1] ${
-            theme === 'dark' ? 'text-white' : 'text-gray-900'
+            theme === 'dark' ? 'text-white' : 'text-indigo-400'
           }`}
         >
           We Design & Build
           <br />
           <span className={`${
             theme === 'dark' 
-              ? 'bg-gradient-to-r from-gray-200 via-white to-gray-300' 
-              : 'bg-gradient-to-r from-gray-700 via-gray-900 to-gray-700'
+              ? 'bg-gradient-to-r from-indigo-600 via-indigo-200 to-white' 
+              : 'bg-gradient-to-r from-pink-200 via-pink-600 to-black'
           } bg-clip-text text-transparent`}>
             {displayText}
             <motion.span
@@ -216,7 +216,7 @@ export function Hero() {
         </motion.div>
 
         {/* Stats */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.6 }}
@@ -244,7 +244,7 @@ export function Hero() {
               </div>
             </motion.div>
           ))}
-        </motion.div>
+        </motion.div> */}
       </div>
     </motion.section>
   );
