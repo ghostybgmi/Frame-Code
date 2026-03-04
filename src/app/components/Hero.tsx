@@ -1,5 +1,5 @@
-import { motion, useMotionValue, useTransform, useScroll } from 'framer-motion';
-import { ArrowRight, Sparkles, Code2, Palette, Zap } from 'lucide-react';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { ArrowRight, Sparkles } from 'lucide-react';
 import { useEffect, useState, useRef } from 'react';
 import { useTheme } from '../context/ThemeContext';
 
@@ -11,20 +11,14 @@ export function Hero() {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [displayText, setDisplayText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-
-  const rotateX = useTransform(mouseY, [-300, 300], [15, -15]);
-  const rotateY = useTransform(mouseX, [-300, 300], [-15, 15]);
 
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ['start start', 'end start'],
   });
 
-  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0.3]);
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.92]);
-  const y = useTransform(scrollYProgress, [0, 1], [0, 150]);
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+  const y = useTransform(scrollYProgress, [0, 1], [0, -50]);
 
   useEffect(() => {
     const currentWord = typingWords[currentWordIndex];
@@ -48,203 +42,147 @@ export function Hero() {
     return () => clearTimeout(timeout);
   }, [displayText, isDeleting, currentWordIndex]);
 
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      const { clientX, clientY } = e;
-      const { innerWidth, innerHeight } = window;
-      const x = (clientX - innerWidth / 2) * 0.5;
-      const y = (clientY - innerHeight / 2) * 0.5;
-      mouseX.set(x);
-      mouseY.set(y);
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, [mouseX, mouseY]);
-
-  const floatingIcons = [
-    { Icon: Code2, delay: 0, duration: 6 },
-    { Icon: Palette, delay: 2, duration: 7 },
-    { Icon: Zap, delay: 4, duration: 5 },
-  ];
-
   return (
     <motion.section
       ref={ref}
-      style={{ opacity, scale, y }}
-      className={`relative min-h-screen flex items-center justify-center overflow-hidden transition-colors duration-700 ${
+      style={{ opacity, y }}
+      className={`relative min-h-screen flex items-center justify-center overflow-hidden pt-16 transition-colors duration-700 ${
         theme === 'dark'
-          ? 'bg-gradient-to-br from-gray-950 via-gray-900 to-black'
-          : 'bg-gradient-to-br from-gray-50 via-white to-gray-100'
+          ? 'bg-[#0d1117]'
+          : 'bg-white'
       }`}
     >
-      {/* Background Effects */}
-      <div className="absolute inset-0 overflow-hidden">
-        <motion.div 
-          className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] rounded-full blur-[150px] ${
-            theme === 'dark' ? 'bg-white/[0.03]' : 'bg-indigo-900/[0.04]'
+      {/* Subtle gradient background */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div 
+          className={`absolute top-0 left-1/2 -translate-x-1/2 w-[1400px] h-[600px] rounded-full blur-[120px] ${
+            theme === 'dark' 
+              ? 'bg-gradient-to-r from-purple-900/20 via-blue-900/20 to-indigo-900/20' 
+              : 'bg-gradient-to-r from-purple-100/40 via-blue-100/40 to-indigo-100/40'
           }`}
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.3, 0.5, 0.3],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
         />
       </div>
 
-      {/* 3D Floating Shapes */}
-      <motion.div
-        className={`absolute top-20 left-20 w-72 h-72 rounded-[50px] backdrop-blur-2xl border hidden lg:block shadow-2xl ${
+      {/* Grid pattern overlay */}
+      <div 
+        className={`absolute inset-0 ${
           theme === 'dark'
-            ? 'bg-gradient-to-br from-gray-800/40 to-indigo-900/40 border-white/30'
-            : 'bg-gradient-to-br from-indigo-600/60 to-indigo-100/60 border-indigo-300/40'
-        }`}
-        style={{ rotateX, rotateY, transformStyle: 'preserve-3d' }}
-        animate={{ y: [0, -40, 0], rotateZ: [0, 8, 0] }}
-        transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+            ? 'bg-[linear-gradient(rgba(255,255,255,.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.02)_1px,transparent_1px)]'
+            : 'bg-[linear-gradient(rgba(0,0,0,.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,.02)_1px,transparent_1px)]'
+        } bg-[size:100px_100px]`}
+        style={{
+          maskImage: 'radial-gradient(ellipse 80% 50% at 50% 0%, black 70%, transparent 100%)',
+        }}
       />
 
-      {/* Floating Icons */}
-      {floatingIcons.map(({ Icon, delay, duration }, idx) => (
-        <motion.div
-          key={idx}
-          className={`absolute hidden xl:block ${theme === 'dark' ? 'text-indigo-600' : 'text-indigo-600'}`}
-          style={{ top: `${20 + idx * 25}%`, right: `${10 + idx * 15}%` }}
-          animate={{ y: [0, -30, 0], x: [0, 15, 0], rotate: [0, 360], opacity: [0.2, 0.4, 0.2] }}
-          transition={{ duration, repeat: Infinity, ease: "easeInOut", delay }}
-        >
-          <Icon className="w-16 h-16" strokeWidth={1} />
-        </motion.div>
-      ))}
-
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-20 md:pt-0">
+      <div className="relative z-10 max-w-6xl mx-auto px-6 text-center">
+        {/* Badge */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full backdrop-blur-xl border mb-8 shadow-lg ${
-            theme === 'dark'
-              ? 'bg-white/5 border-white/10 hover:bg-white/10'
-              : 'bg-gray-900/5 border-gray-900/10 hover:bg-gray-900/10'
-          } transition-all duration-300 cursor-default group`}
+          transition={{ duration: 0.6 }}
+          className="mb-8"
         >
-          <motion.div 
-            animate={{ rotate: 360 }} 
-            transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}
-          >
-            <Sparkles className={`w-4 h-4 ${theme === 'dark' ? 'text-white' : 'text-indigo-700'}`} />
-          </motion.div>
-          <span className={`text-sm font-semibold ${theme === 'dark' ? 'text-gray-200' : 'text-gray-800'}`}>
+          <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium backdrop-blur-sm border ${
+            theme === 'dark'
+              ? 'bg-[#161b22] border-[#30363d] text-[#7d8590]'
+              : 'bg-gray-50 border-gray-200 text-gray-700'
+          }`}>
+            <Sparkles className="w-4 h-4 text-indigo-500" />
             Welcome to Frame & Code
-          </span>
+          </div>
         </motion.div>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 40 }}
+        {/* Main Heading */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-          className={`text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-6 leading-[1.1] ${
-            theme === 'dark' ? 'text-white' : 'text-indigo-400'
-          }`}
+          transition={{ duration: 0.6, delay: 0.1 }}
         >
-          We Design & Build
-          <br />
-          <span className={`${
-            theme === 'dark' 
-              ? 'bg-gradient-to-r from-indigo-600 via-indigo-200 to-white' 
-              : 'bg-gradient-to-r from-pink-200 via-pink-600 to-black'
-          } bg-clip-text text-transparent`}>
-            {displayText}
-            <motion.span
-              animate={{ opacity: [1, 0] }}
-              transition={{ duration: 0.5, repeat: Infinity }}
-              className={`inline-block w-[3px] h-[0.85em] ml-2 align-middle rounded-full ${
-                theme === 'dark' ? 'bg-white' : 'bg-gray-900'
-              }`}
-            />
-          </span>
-          <br />
-          Web Products
-        </motion.h1>
+          <h1 className={`text-5xl sm:text-6xl md:text-7xl lg:text-[80px] font-bold leading-[1.1] mb-6 ${
+            theme === 'dark' ? 'text-white' : 'text-gray-900'
+          }`}>
+            We Design & Build
+            <br />
+            <span className="relative inline-block">
+              <span className={`relative ${
+                theme === 'dark' 
+                  ? 'bg-gradient-to-r from-purple-400 via-indigo-400 to-blue-400' 
+                  : 'bg-gradient-to-r from-purple-600 via-indigo-600 to-blue-600'
+              } bg-clip-text text-transparent`}>
+                {displayText}
+                <motion.span
+                  animate={{ opacity: [1, 0] }}
+                  transition={{ duration: 0.5, repeat: Infinity }}
+                  className="inline-block w-[3px] h-[0.85em] ml-1 align-middle bg-indigo-500 rounded-sm"
+                />
+              </span>
+            </span>
+            <br />
+            Web Products
+          </h1>
+        </motion.div>
 
+        {/* Description */}
         <motion.p
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-          className={`text-lg md:text-xl lg:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed ${
-            theme === 'dark' ? 'text-gray-400' : 'text-gray-600'
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className={`text-lg sm:text-xl md:text-2xl max-w-3xl mx-auto mb-10 leading-relaxed ${
+            theme === 'dark' ? 'text-[#7d8590]' : 'text-gray-600'
           }`}
         >
           Crafting digital experiences that drive growth and delight users.
         </motion.p>
 
+        {/* CTA Buttons */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.45, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4"
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
         >
           <motion.a
             href="#contact"
-            whileHover={{ scale: 1.05, y: -2 }}
+            whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className={`px-8 py-4 rounded-2xl font-semibold shadow-xl transition-all duration-300 flex items-center gap-2 ${
-              theme === 'dark' ? 'bg-white text-black' : 'bg-gray-900 text-white'
-            }`}
+            className="group relative inline-flex items-center gap-2 px-8 py-4 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-lg transition-colors shadow-lg shadow-indigo-500/25"
           >
             Get Started
-            <ArrowRight className="w-5 h-5" />
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </motion.a>
 
           <motion.a
             href="#portfolio"
-            whileHover={{ scale: 1.05, y: -2 }}
+            whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className={`px-8 py-4 rounded-2xl border-2 font-semibold backdrop-blur-xl transition-all duration-300 ${
+            className={`inline-flex items-center gap-2 px-8 py-4 font-semibold rounded-lg border transition-all ${
               theme === 'dark'
-                ? 'border-white/20 hover:bg-white/5 text-white'
-                : 'border-gray-900/20 hover:bg-gray-900/5 text-gray-900'
+                ? 'border-[#30363d] hover:border-[#484f58] text-white hover:bg-[#161b22]'
+                : 'border-gray-300 hover:border-gray-400 text-gray-900 hover:bg-gray-50'
             }`}
           >
             View Work
           </motion.a>
         </motion.div>
 
-        {/* Stats */}
-        {/* <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.6 }}
-          className="grid grid-cols-3 gap-8 mt-24 max-w-4xl mx-auto"
+        {/* Trusted by */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+          className={`text-sm ${theme === 'dark' ? 'text-[#7d8590]' : 'text-gray-600'}`}
         >
-          {[
-            { value: '50+', label: 'Projects' },
-            { value: '98%', label: 'Satisfaction' },
-            { value: '12+', label: 'Years' },
-          ].map((stat, idx) => (
-            <motion.div
-              key={idx}
-              whileHover={{ y: -8, scale: 1.05 }}
-              className={`p-6 rounded-3xl backdrop-blur-xl border ${
-                theme === 'dark' ? 'border-white/10 hover:bg-white/5' : 'border-gray-900/10 hover:bg-gray-900/5'
-              }`}
-            >
-              <div className={`text-4xl md:text-5xl font-bold mb-2 ${
-                theme === 'dark' ? 'text-white' : 'text-gray-900'
-              }`}>
-                {stat.value}
+          <p className="mb-6">Trusted by innovative companies worldwide</p>
+          <div className="flex flex-wrap items-center justify-center gap-8 opacity-50">
+            {['Company A', 'Company B', 'Company C', 'Company D'].map((company) => (
+              <div key={company} className="font-semibold text-lg">
+                {company}
               </div>
-              <div className={`text-sm ${theme === 'dark' ? 'text-gray-500' : 'text-gray-600'}`}>
-                {stat.label}
-              </div>
-            </motion.div>
-          ))}
-        </motion.div> */}
+            ))}
+          </div>
+        </motion.div>
       </div>
     </motion.section>
   );
