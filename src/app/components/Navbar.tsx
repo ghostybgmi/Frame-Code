@@ -30,9 +30,8 @@ export function Navbar() {
   return (
     <motion.nav
       style={{ backgroundColor, backdropFilter: backdropBlur }}
-      className={`fixed top-0 left-0 right-0 z-50 border-b transition-colors duration-500 ${
-        theme === "dark" ? "border-slate-800/50" : "border-gray-200/50"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 border-b transition-colors duration-500 ${theme === "dark" ? "border-slate-800/50" : "border-gray-200/50"
+        }`}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
@@ -47,9 +46,8 @@ export function Navbar() {
               <span className="text-white font-bold text-xl">FC</span>
             </div>
             <span
-              className={`text-xl font-bold transition-colors duration-500 ${
-                theme === "dark" ? "text-white" : "text-gray-900"
-              }`}
+              className={`text-xl font-bold transition-colors duration-500 ${theme === "dark" ? "text-white" : "text-gray-900"
+                }`}
             >
               Frame & <span className="text-indigo-400">Code</span>
             </span>
@@ -67,11 +65,10 @@ export function Navbar() {
                 key={index}
                 href={item.href}
                 whileHover={{ y: -2 }}
-                className={`transition-colors duration-200 font-medium ${
-                  theme === "dark"
-                    ? "text-slate-400 hover:text-white"
-                    : "text-gray-600 hover:text-gray-900"
-                }`}
+                className={`transition-colors duration-200 font-medium ${theme === "dark"
+                  ? "text-slate-400 hover:text-white"
+                  : "text-gray-600 hover:text-gray-900"
+                  }`}
               >
                 {item.label}
               </motion.a>
@@ -82,11 +79,10 @@ export function Navbar() {
               onClick={toggleTheme}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className={`p-2.5 rounded-xl transition-all duration-300 cursor-pointer ${
-                theme === "dark"
-                  ? "bg-slate-800 hover:bg-slate-700 text-yellow-400"
-                  : "bg-gray-200 hover:bg-gray-300 text-indigo-600"
-              }`}
+              className={`p-2.5 rounded-xl transition-all duration-300 cursor-pointer ${theme === "dark"
+                ? "bg-slate-800 hover:bg-slate-700 text-yellow-400"
+                : "bg-gray-200 hover:bg-gray-300 text-indigo-600"
+                }`}
               aria-label="Toggle theme"
             >
               {theme === "dark" ? (
@@ -100,6 +96,7 @@ export function Navbar() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="px-6 py-2.5 bg-gradient-to-r from-indigo-600 to-violet-600 text-white rounded-xl font-semibold shadow-lg shadow-indigo-500/30 hover:shadow-indigo-500/50 transition-all duration-300 cursor-pointer"
+              onClick={() => window.location.href = "#contact"}
             >
               Contact Us
             </motion.button>
@@ -111,11 +108,10 @@ export function Navbar() {
             <motion.button
               onClick={toggleTheme}
               whileTap={{ scale: 0.95 }}
-              className={`p-2 rounded-xl transition-all duration-300 ${
-                theme === "dark"
-                  ? "bg-slate-800 text-yellow-400"
-                  : "bg-gray-200 text-indigo-600"
-              }`}
+              className={`p-2 rounded-xl transition-all duration-300 ${theme === "dark"
+                ? "bg-slate-800 text-yellow-400"
+                : "bg-gray-200 text-indigo-600"
+                }`}
               aria-label="Toggle theme"
             >
               {theme === "dark" ? (
@@ -130,9 +126,8 @@ export function Navbar() {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6 }}
               onClick={() => setIsOpen(!isOpen)}
-              className={`p-2 transition-colors duration-500 ${
-                theme === "dark" ? "text-white" : "text-gray-900"
-              }`}
+              className={`p-2 transition-colors duration-500 ${theme === "dark" ? "text-white" : "text-gray-900"
+                }`}
             >
               {isOpen ? (
                 <X className="w-6 h-6" />
@@ -149,9 +144,8 @@ export function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className={`md:hidden py-4 border-t transition-colors duration-500 ${
-              theme === "dark" ? "border-slate-800/50" : "border-gray-200/50"
-            }`}
+            className={`md:hidden py-4 border-t transition-colors duration-500 ${theme === "dark" ? "border-slate-800/50" : "border-gray-200/50"
+              }`}
           >
             {menuItems.map((item, index) => (
               <motion.a
@@ -161,11 +155,10 @@ export function Navbar() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: index * 0.1 }}
                 onClick={() => setIsOpen(false)}
-                className={`block py-3 font-medium transition-colors duration-200 ${
-                  theme === "dark"
-                    ? "text-slate-400 hover:text-white"
-                    : "text-gray-600 hover:text-gray-900"
-                }`}
+                className={`block py-3 font-medium transition-colors duration-200 ${theme === "dark"
+                  ? "text-slate-400 hover:text-white"
+                  : "text-gray-600 hover:text-gray-900"
+                  }`}
               >
                 {item.label}
               </motion.a>
@@ -175,6 +168,7 @@ export function Navbar() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: menuItems.length * 0.1 }}
               className="w-full mt-4 px-6 py-3 bg-gradient-to-r from-indigo-600 to-violet-600 text-white rounded-xl font-semibold shadow-lg shadow-indigo-500/30"
+              onClick={() => window.location.href = "#contact"}
             >
               Contact Us
             </motion.button>

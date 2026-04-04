@@ -13,6 +13,8 @@ export function Footer() {
       "UI/UX Design",
       "SEO Optimization",
       "Hosting & DevOps",
+      "Content Management System",
+      "Automation",
     ],
     Company: ["About Us", "Our Team", "Careers", "Blog", "Contact"],
     Resources: [
@@ -33,24 +35,21 @@ export function Footer() {
 
   return (
     <footer
-      className={`relative overflow-hidden border-t transition-colors duration-500 ${
-        theme === "dark"
-          ? "bg-slate-950 text-white border-slate-800/50"
-          : "bg-gray-100 text-gray-900 border-gray-200"
-      }`}
+      className={`relative overflow-hidden border-t transition-colors duration-500 ${theme === "dark"
+        ? "bg-slate-950 text-white border-slate-800/50"
+        : "bg-gray-100 text-gray-900 border-gray-200"
+        }`}
     >
       {/* Background decoration */}
       <div
-        className={`absolute inset-0 ${
-          theme === "dark"
-            ? "bg-[linear-gradient(to_right,#4f46e508_1px,transparent_1px),linear-gradient(to_bottom,#4f46e508_1px,transparent_1px)]"
-            : "bg-[linear-gradient(to_right,#4f46e515_1px,transparent_1px),linear-gradient(to_bottom,#4f46e515_1px,transparent_1px)]"
-        } bg-[size:4rem_4rem]`}
+        className={`absolute inset-0 ${theme === "dark"
+          ? "bg-[linear-gradient(to_right,#4f46e508_1px,transparent_1px),linear-gradient(to_bottom,#4f46e508_1px,transparent_1px)]"
+          : "bg-[linear-gradient(to_right,#4f46e515_1px,transparent_1px),linear-gradient(to_bottom,#4f46e515_1px,transparent_1px)]"
+          } bg-[size:4rem_4rem]`}
       />
       <div
-        className={`absolute top-0 left-1/4 w-96 h-96 rounded-full blur-3xl ${
-          theme === "dark" ? "bg-indigo-600/5" : "bg-indigo-400/10"
-        }`}
+        className={`absolute top-0 left-1/4 w-96 h-96 rounded-full blur-3xl ${theme === "dark" ? "bg-indigo-600/5" : "bg-indigo-400/10"
+          }`}
       />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8 pt-16 sm:pt-20 pb-8 relative z-10">
@@ -71,9 +70,8 @@ export function Footer() {
               </span>
             </motion.div>
             <p
-              className={`mb-6 leading-relaxed transition-colors duration-500 ${
-                theme === "dark" ? "text-slate-500" : "text-gray-600"
-              }`}
+              className={`mb-6 leading-relaxed transition-colors duration-500 ${theme === "dark" ? "text-slate-500" : "text-gray-600"
+                }`}
             >
               We transform ideas into exceptional digital experiences. Building
               the future, one project at a time.
@@ -81,17 +79,16 @@ export function Footer() {
 
             {/* Contact info */}
             <div
-              className={`space-y-3 text-sm transition-colors duration-500 ${
-                theme === "dark" ? "text-slate-500" : "text-gray-600"
-              }`}
+              className={`space-y-3 text-sm transition-colors duration-500 ${theme === "dark" ? "text-slate-500" : "text-gray-600"
+                }`}
             >
               <div className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-indigo-400" />
-                <span>hello@digitalagency.com</span>
+                <span>rs9990271.work@gmail.com</span>
               </div>
               <div className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-indigo-400" />
-                <span>+1 (555) 123-4567</span>
+                <span>+918076095816, +917428874763</span>
               </div>
               <div className="flex items-center gap-3">
                 <MapPin className="w-4 h-4 text-indigo-400" />
@@ -110,9 +107,8 @@ export function Footer() {
               transition={{ delay: index * 0.1 }}
             >
               <h3
-                className={`font-bold text-base sm:text-lg mb-4 transition-colors duration-500 ${
-                  theme === "dark" ? "text-white" : "text-gray-900"
-                }`}
+                className={`font-bold text-base sm:text-lg mb-4 transition-colors duration-500 ${theme === "dark" ? "text-white" : "text-gray-900"
+                  }`}
               >
                 {title}
               </h3>
@@ -121,11 +117,10 @@ export function Footer() {
                   <li key={linkIndex}>
                     <a
                       href="#"
-                      className={`text-sm transition-colors duration-200 ${
-                        theme === "dark"
-                          ? "text-slate-500 hover:text-indigo-400"
-                          : "text-gray-600 hover:text-indigo-600"
-                      }`}
+                      className={`text-sm transition-colors duration-200 ${theme === "dark"
+                        ? "text-slate-500 hover:text-indigo-400"
+                        : "text-gray-600 hover:text-indigo-600"
+                        }`}
                     >
                       {link}
                     </a>
@@ -138,17 +133,15 @@ export function Footer() {
 
         {/* Bottom bar */}
         <div
-          className={`border-t pt-8 flex flex-col md:flex-row items-center justify-between gap-6 transition-colors duration-500 ${
-            theme === "dark" ? "border-slate-800/50" : "border-gray-300"
-          }`}
+          className={`border-t pt-8 flex flex-col md:flex-row items-center justify-between gap-6 transition-colors duration-500 ${theme === "dark" ? "border-slate-800/50" : "border-gray-300"
+            }`}
         >
           <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className={`text-sm transition-colors duration-500 ${
-              theme === "dark" ? "text-slate-500" : "text-gray-600"
-            }`}
+            className={`text-sm transition-colors duration-500 ${theme === "dark" ? "text-slate-500" : "text-gray-600"
+              }`}
           >
             © {currentYear} DigitalAgency. All rights reserved.
           </motion.p>
@@ -167,11 +160,10 @@ export function Footer() {
                 aria-label={social.label}
                 whileHover={{ y: -3, scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
-                className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 border ${
-                  theme === "dark"
-                    ? "bg-slate-800/50 hover:bg-gradient-to-br hover:from-indigo-600 hover:to-violet-600 border-slate-700/50 hover:border-transparent hover:shadow-lg hover:shadow-indigo-500/20"
-                    : "bg-gray-200 hover:bg-gradient-to-br hover:from-indigo-600 hover:to-violet-600 border-gray-300 hover:border-transparent hover:shadow-lg hover:shadow-indigo-500/20 hover:text-white"
-                }`}
+                className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 border ${theme === "dark"
+                  ? "bg-slate-800/50 hover:bg-gradient-to-br hover:from-indigo-600 hover:to-violet-600 border-slate-700/50 hover:border-transparent hover:shadow-lg hover:shadow-indigo-500/20"
+                  : "bg-gray-200 hover:bg-gradient-to-br hover:from-indigo-600 hover:to-violet-600 border-gray-300 hover:border-transparent hover:shadow-lg hover:shadow-indigo-500/20 hover:text-white"
+                  }`}
               >
                 <social.icon className="w-5 h-5" />
               </motion.a>

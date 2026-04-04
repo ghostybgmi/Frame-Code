@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Code2, Database, Palette, Search, Server, Rocket } from 'lucide-react';
+import { Code2, Database, Palette, Search, Server, Rocket, AirVent, Car, Settings } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 
 const services = [
@@ -45,24 +45,36 @@ const services = [
     gradient: 'from-indigo-500 to-blue-500',
     bgGradient: 'from-indigo-500/10 to-blue-500/10',
   },
+  {
+    icon: Settings,
+    title: 'Content Management System',
+    description: 'Custom CMS development for seamless content management and publishing.',
+    gradient: 'from-indigo-500 to-violet-500',
+    bgGradient: 'from-indigo-500/10 to-violet-500/10',
+  },
+  {
+    icon: Car,
+    title: 'Automation',
+    description: 'Automate repetitive tasks and streamline your workflows with custom automation solutions.',
+    gradient: 'from-indigo-500 to-violet-500',
+    bgGradient: 'from-indigo-500/10 to-violet-500/10',
+  },
+
 ];
 
 export function Services() {
   const { theme } = useTheme();
-  
+
   return (
-    <section className={`py-24 relative overflow-hidden transition-colors duration-500 ${
-      theme === 'dark'
-        ? 'bg-gradient-to-b from-slate-900 via-slate-900 to-slate-950'
-        : 'bg-gradient-to-b from-white via-gray-50 to-white'
-    }`}>
+    <section className={`py-24 relative overflow-hidden transition-colors duration-500 ${theme === 'dark'
+      ? 'bg-gradient-to-b from-slate-900 via-slate-900 to-slate-950'
+      : 'bg-gradient-to-b from-white via-gray-50 to-white'
+      }`}>
       {/* Background decoration */}
-      <div className={`absolute top-20 right-0 w-96 h-96 rounded-full blur-3xl ${
-        theme === 'dark' ? 'bg-indigo-600/10' : 'bg-indigo-400/20'
-      }`} />
-      <div className={`absolute bottom-20 left-0 w-96 h-96 rounded-full blur-3xl ${
-        theme === 'dark' ? 'bg-violet-600/10' : 'bg-violet-400/20'
-      }`} />
+      <div className={`absolute top-20 right-0 w-96 h-96 rounded-full blur-3xl ${theme === 'dark' ? 'bg-indigo-600/10' : 'bg-indigo-400/20'
+        }`} />
+      <div className={`absolute bottom-20 left-0 w-96 h-96 rounded-full blur-3xl ${theme === 'dark' ? 'bg-violet-600/10' : 'bg-violet-400/20'
+        }`} />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         <motion.div
@@ -72,21 +84,18 @@ export function Services() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <div className={`inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border mb-4 ${
-            theme === 'dark'
-              ? 'bg-indigo-500/10 border-indigo-500/20 text-indigo-400'
-              : 'bg-indigo-100 border-indigo-200 text-indigo-700'
-          }`}>
+          <div className={`inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border mb-4 ${theme === 'dark'
+            ? 'bg-indigo-500/10 border-indigo-500/20 text-indigo-400'
+            : 'bg-indigo-100 border-indigo-200 text-indigo-700'
+            }`}>
             <span className="text-xs sm:text-sm font-semibold">Our Services</span>
           </div>
-          <h2 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 px-4 transition-colors duration-500 ${
-            theme === 'dark' ? 'text-white' : 'text-gray-900'
-          }`}>
+          <h2 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 px-4 transition-colors duration-500 ${theme === 'dark' ? 'text-white' : 'text-gray-900'
+            }`}>
             What We <span className="bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent">Offer</span>
           </h2>
-          <p className={`text-base sm:text-lg md:text-xl max-w-2xl mx-auto px-4 transition-colors duration-500 ${
-            theme === 'dark' ? 'text-slate-400' : 'text-gray-600'
-          }`}>
+          <p className={`text-base sm:text-lg md:text-xl max-w-2xl mx-auto px-4 transition-colors duration-500 ${theme === 'dark' ? 'text-slate-400' : 'text-gray-600'
+            }`}>
             End-to-end digital solutions tailored to your business needs
           </p>
         </motion.div>
@@ -102,20 +111,18 @@ export function Services() {
               whileHover={{ y: -10 }}
               className="group relative"
             >
-              <div className={`relative h-full p-8 backdrop-blur-xl rounded-[24px] border shadow-lg transition-all duration-300 overflow-hidden ${
-                theme === 'dark'
-                  ? 'bg-slate-800/40 border-slate-700/50 hover:border-indigo-500/50 hover:shadow-indigo-500/20'
-                  : 'bg-white/80 border-gray-200 hover:border-indigo-500/50 hover:shadow-indigo-200/50'
-              }`}>
+              <div className={`relative h-full p-8 backdrop-blur-xl rounded-[24px] border shadow-lg transition-all duration-300 overflow-hidden ${theme === 'dark'
+                ? 'bg-slate-800/40 border-slate-700/50 hover:border-indigo-500/50 hover:shadow-indigo-500/20'
+                : 'bg-white/80 border-gray-200 hover:border-indigo-500/50 hover:shadow-indigo-200/50'
+                }`}>
                 {/* Gradient background on hover */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${service.bgGradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
-                
+
                 {/* Glow effect */}
-                <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${
-                  theme === 'dark'
-                    ? 'shadow-[inset_0_0_20px_rgba(99,102,241,0.2)]'
-                    : 'shadow-[inset_0_0_20px_rgba(99,102,241,0.1)]'
-                }`} />
+                <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${theme === 'dark'
+                  ? 'shadow-[inset_0_0_20px_rgba(99,102,241,0.2)]'
+                  : 'shadow-[inset_0_0_20px_rgba(99,102,241,0.1)]'
+                  }`} />
 
                 <div className="relative z-10">
                   {/* Icon */}
@@ -128,14 +135,12 @@ export function Services() {
                   </motion.div>
 
                   {/* Content */}
-                  <h3 className={`text-2xl font-bold mb-4 transition-colors duration-500 ${
-                    theme === 'dark' ? 'text-white' : 'text-gray-900'
-                  }`}>
+                  <h3 className={`text-2xl font-bold mb-4 transition-colors duration-500 ${theme === 'dark' ? 'text-white' : 'text-gray-900'
+                    }`}>
                     {service.title}
                   </h3>
-                  <p className={`leading-relaxed transition-colors duration-500 ${
-                    theme === 'dark' ? 'text-slate-400' : 'text-gray-600'
-                  }`}>
+                  <p className={`leading-relaxed transition-colors duration-500 ${theme === 'dark' ? 'text-slate-400' : 'text-gray-600'
+                    }`}>
                     {service.description}
                   </p>
 

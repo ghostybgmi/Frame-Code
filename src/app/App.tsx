@@ -32,7 +32,9 @@ export default function App() {
           <WhyChooseUs />
         </div>
         <Testimonials />
-        <ContactUs />
+        <div id="contact">
+          <ContactUs />
+        </div>
         {/* <FinalCTA /> */}
         <Footer />
       </div>

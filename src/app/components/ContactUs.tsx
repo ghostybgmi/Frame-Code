@@ -96,25 +96,22 @@ export function ContactUs() {
 
   return (
     <section
-      className={`py-24 relative overflow-hidden transition-colors duration-500 ${
-        theme === "dark"
+      className={`py-24 relative overflow-hidden transition-colors duration-500 ${theme === "dark"
           ? "bg-gradient-to-b from-slate-950 via-indigo-950 to-slate-950"
           : "bg-gradient-to-b from-gray-50 via-indigo-50 to-gray-50"
-      }`}
+        }`}
     >
       {/* Background decoration */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
-          className={`absolute top-1/2 left-1/4 w-[500px] h-[500px] rounded-full blur-3xl ${
-            theme === "dark" ? "bg-indigo-600/10" : "bg-indigo-400/20"
-          }`}
+          className={`absolute top-1/2 left-1/4 w-[500px] h-[500px] rounded-full blur-3xl ${theme === "dark" ? "bg-indigo-600/10" : "bg-indigo-400/20"
+            }`}
           animate={{ scale: [1, 1.2, 1], x: [0, 50, 0] }}
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div
-          className={`absolute bottom-0 right-1/4 w-[500px] h-[500px] rounded-full blur-3xl ${
-            theme === "dark" ? "bg-violet-600/10" : "bg-violet-400/20"
-          }`}
+          className={`absolute bottom-0 right-1/4 w-[500px] h-[500px] rounded-full blur-3xl ${theme === "dark" ? "bg-violet-600/10" : "bg-violet-400/20"
+            }`}
           animate={{ scale: [1.2, 1, 1.2], x: [0, -50, 0] }}
           transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
         />
@@ -122,31 +119,28 @@ export function ContactUs() {
 
       {/* 3D Floating shapes */}
       <motion.div
-        className={`absolute top-20 right-20 w-40 h-40 rounded-[30px] border hidden lg:block ${
-          theme === "dark"
+        className={`absolute top-20 right-20 w-40 h-40 rounded-[30px] border hidden lg:block ${theme === "dark"
             ? "bg-gradient-to-br from-indigo-500/5 to-violet-500/5 backdrop-blur-xl border-indigo-500/10"
             : "bg-gradient-to-br from-indigo-200/30 to-violet-200/30 backdrop-blur-xl border-indigo-300/30"
-        }`}
+          }`}
         animate={{ y: [0, -25, 0], rotateZ: [0, 10, 0] }}
         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.div
-        className={`absolute bottom-40 left-20 w-32 h-32 rounded-[25px] border hidden lg:block ${
-          theme === "dark"
+        className={`absolute bottom-40 left-20 w-32 h-32 rounded-[25px] border hidden lg:block ${theme === "dark"
             ? "bg-gradient-to-tr from-violet-500/5 to-indigo-500/5 backdrop-blur-xl border-violet-500/10"
             : "bg-gradient-to-tr from-violet-200/30 to-indigo-200/30 backdrop-blur-xl border-violet-300/30"
-        }`}
+          }`}
         animate={{ y: [0, 20, 0], rotateZ: [0, -10, 0] }}
         transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
       />
 
       {/* Grid pattern */}
       <div
-        className={`absolute inset-0 ${
-          theme === "dark"
+        className={`absolute inset-0 ${theme === "dark"
             ? "bg-[linear-gradient(to_right,#4f46e508_1px,transparent_1px),linear-gradient(to_bottom,#4f46e508_1px,transparent_1px)]"
             : "bg-[linear-gradient(to_right,#4f46e515_1px,transparent_1px),linear-gradient(to_bottom,#4f46e515_1px,transparent_1px)]"
-        } bg-[size:4rem_4rem]`}
+          } bg-[size:4rem_4rem]`}
       />
 
       <div className="max-w-4xl mx-auto px-6 lg:px-8 relative z-10">
@@ -159,11 +153,10 @@ export function ContactUs() {
           className="text-center mb-12"
         >
           <div
-            className={`inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full backdrop-blur-xl border mb-4 ${
-              theme === "dark"
+            className={`inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full backdrop-blur-xl border mb-4 ${theme === "dark"
                 ? "bg-indigo-500/10 border-indigo-500/20 text-indigo-400"
                 : "bg-indigo-100 border-indigo-200 text-indigo-700"
-            }`}
+              }`}
           >
             <Mail className="w-3 h-3 sm:w-4 sm:h-4" />
             <span className="text-xs sm:text-sm font-semibold">
@@ -171,9 +164,8 @@ export function ContactUs() {
             </span>
           </div>
           <h2
-            className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 px-4 transition-colors duration-500 ${
-              theme === "dark" ? "text-white" : "text-gray-900"
-            }`}
+            className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 px-4 transition-colors duration-500 ${theme === "dark" ? "text-white" : "text-gray-900"
+              }`}
           >
             Let's Start Your{" "}
             <span className="bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent">
@@ -181,9 +173,8 @@ export function ContactUs() {
             </span>
           </h2>
           <p
-            className={`text-base sm:text-lg md:text-xl max-w-2xl mx-auto px-4 transition-colors duration-500 ${
-              theme === "dark" ? "text-slate-400" : "text-gray-600"
-            }`}
+            className={`text-base sm:text-lg md:text-xl max-w-2xl mx-auto px-4 transition-colors duration-500 ${theme === "dark" ? "text-slate-400" : "text-gray-600"
+              }`}
           >
             Tell us about your project and we'll get back to you within 24 hours
           </p>
@@ -195,22 +186,20 @@ export function ContactUs() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className={`rounded-[24px] sm:rounded-[32px] p-6 sm:p-8 md:p-12 border shadow-2xl transition-all duration-500 ${
-            theme === "dark"
+          className={`rounded-[24px] sm:rounded-[32px] p-6 sm:p-8 md:p-12 border shadow-2xl transition-all duration-500 ${theme === "dark"
               ? "bg-slate-800/40 backdrop-blur-xl border-slate-700/50 shadow-indigo-500/10"
               : "bg-white/80 backdrop-blur-xl border-gray-200 shadow-indigo-200/30"
-          }`}
+            }`}
         >
           {/* ── Success banner ── */}
           {submitStatus === "success" && (
             <motion.div
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
-              className={`flex items-center gap-3 p-4 rounded-2xl mb-6 ${
-                theme === "dark"
+              className={`flex items-center gap-3 p-4 rounded-2xl mb-6 ${theme === "dark"
                   ? "bg-emerald-500/10 border border-emerald-500/20 text-emerald-400"
                   : "bg-emerald-50 border border-emerald-200 text-emerald-700"
-              }`}
+                }`}
             >
               <CheckCircle className="w-5 h-5 shrink-0" />
               <div>
@@ -227,11 +216,10 @@ export function ContactUs() {
             <motion.div
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
-              className={`flex items-center gap-3 p-4 rounded-2xl mb-6 ${
-                theme === "dark"
+              className={`flex items-center gap-3 p-4 rounded-2xl mb-6 ${theme === "dark"
                   ? "bg-red-500/10 border border-red-500/20 text-red-400"
                   : "bg-red-50 border border-red-200 text-red-700"
-              }`}
+                }`}
             >
               <AlertCircle className="w-5 h-5 shrink-0" />
               <div>
@@ -246,9 +234,8 @@ export function ContactUs() {
             <div>
               <label
                 htmlFor="name"
-                className={`flex items-center gap-2 mb-2 font-semibold transition-colors duration-500 ${
-                  theme === "dark" ? "text-white" : "text-gray-900"
-                }`}
+                className={`flex items-center gap-2 mb-2 font-semibold transition-colors duration-500 ${theme === "dark" ? "text-white" : "text-gray-900"
+                  }`}
               >
                 <User className="w-4 h-4" />
                 Full Name
@@ -262,11 +249,10 @@ export function ContactUs() {
                 onChange={handleChange}
                 required
                 disabled={isLoading}
-                className={`w-full px-4 py-4 rounded-2xl border outline-none transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed ${
-                  theme === "dark"
+                className={`w-full px-4 py-4 rounded-2xl border outline-none transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed ${theme === "dark"
                     ? "bg-slate-700/50 border-slate-600 text-white placeholder-slate-400 focus:border-indigo-500 focus:bg-slate-700/70"
                     : "bg-gray-50 border-gray-300 text-gray-900 placeholder-gray-500 focus:border-indigo-500 focus:bg-white"
-                }`}
+                  }`}
                 placeholder="John Doe"
               />
             </div>
@@ -275,9 +261,8 @@ export function ContactUs() {
             <div>
               <label
                 htmlFor="email"
-                className={`flex items-center gap-2 mb-2 font-semibold transition-colors duration-500 ${
-                  theme === "dark" ? "text-white" : "text-gray-900"
-                }`}
+                className={`flex items-center gap-2 mb-2 font-semibold transition-colors duration-500 ${theme === "dark" ? "text-white" : "text-gray-900"
+                  }`}
               >
                 <Mail className="w-4 h-4" />
                 Email Address
@@ -291,11 +276,10 @@ export function ContactUs() {
                 onChange={handleChange}
                 required
                 disabled={isLoading}
-                className={`w-full px-4 py-4 rounded-2xl border outline-none transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed ${
-                  theme === "dark"
+                className={`w-full px-4 py-4 rounded-2xl border outline-none transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed ${theme === "dark"
                     ? "bg-slate-700/50 border-slate-600 text-white placeholder-slate-400 focus:border-indigo-500 focus:bg-slate-700/70"
                     : "bg-gray-50 border-gray-300 text-gray-900 placeholder-gray-500 focus:border-indigo-500 focus:bg-white"
-                }`}
+                  }`}
                 placeholder="john@example.com"
               />
             </div>
@@ -304,9 +288,8 @@ export function ContactUs() {
             <div>
               <label
                 htmlFor="projectType"
-                className={`flex items-center gap-2 mb-2 font-semibold transition-colors duration-500 ${
-                  theme === "dark" ? "text-white" : "text-gray-900"
-                }`}
+                className={`flex items-center gap-2 mb-2 font-semibold transition-colors duration-500 ${theme === "dark" ? "text-white" : "text-gray-900"
+                  }`}
               >
                 <Briefcase className="w-4 h-4" />
                 Project Type
@@ -319,11 +302,10 @@ export function ContactUs() {
                 onChange={handleChange}
                 required
                 disabled={isLoading}
-                className={`w-full px-4 py-4 rounded-2xl border outline-none transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed ${
-                  theme === "dark"
+                className={`w-full px-4 py-4 rounded-2xl border outline-none transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed ${theme === "dark"
                     ? "bg-slate-700/50 border-slate-600 text-white focus:border-indigo-500 focus:bg-slate-700/70"
                     : "bg-gray-50 border-gray-300 text-gray-900 focus:border-indigo-500 focus:bg-white"
-                }`}
+                  }`}
               >
                 <option value="">Select a project type</option>
                 {projectTypes.map((type) => (
@@ -338,9 +320,8 @@ export function ContactUs() {
             <div>
               <label
                 htmlFor="message"
-                className={`flex items-center gap-2 mb-2 font-semibold transition-colors duration-500 ${
-                  theme === "dark" ? "text-white" : "text-gray-900"
-                }`}
+                className={`flex items-center gap-2 mb-2 font-semibold transition-colors duration-500 ${theme === "dark" ? "text-white" : "text-gray-900"
+                  }`}
               >
                 <MessageSquare className="w-4 h-4" />
                 Project Details
@@ -354,11 +335,10 @@ export function ContactUs() {
                 required
                 rows={6}
                 disabled={isLoading}
-                className={`w-full px-4 py-4 rounded-2xl border outline-none resize-none transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed ${
-                  theme === "dark"
+                className={`w-full px-4 py-4 rounded-2xl border outline-none resize-none transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed ${theme === "dark"
                     ? "bg-slate-700/50 border-slate-600 text-white placeholder-slate-400 focus:border-indigo-500 focus:bg-slate-700/70"
                     : "bg-gray-50 border-gray-300 text-gray-900 placeholder-gray-500 focus:border-indigo-500 focus:bg-white"
-                }`}
+                  }`}
                 placeholder="Tell us about your project requirements, timeline, and budget..."
               />
             </div>
@@ -370,9 +350,9 @@ export function ContactUs() {
               whileHover={
                 !isLoading
                   ? {
-                      scale: 1.02,
-                      boxShadow: "0 0 40px rgba(99, 102, 241, 0.4)",
-                    }
+                    scale: 1.02,
+                    boxShadow: "0 0 40px rgba(99, 102, 241, 0.4)",
+                  }
                   : {}
               }
               whileTap={!isLoading ? { scale: 0.98 } : {}}
@@ -399,9 +379,8 @@ export function ContactUs() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className={`mt-8 text-center text-sm transition-colors duration-500 ${
-            theme === "dark" ? "text-slate-500" : "text-gray-500"
-          }`}
+          className={`mt-8 text-center text-sm transition-colors duration-500 ${theme === "dark" ? "text-slate-500" : "text-gray-500"
+            }`}
         >
           <p>
             We respect your privacy. Your information will never be shared with

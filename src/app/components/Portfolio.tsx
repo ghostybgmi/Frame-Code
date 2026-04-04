@@ -3,53 +3,58 @@ import { ImageWithFallback } from './figma/ImageWithFallback';
 import { useTheme } from '../context/ThemeContext';
 
 const projects = [
-{
-  title: 'Citizen Portal Gov.in',
-  category: 'Full Stack Development',
-  description: 'Scalable government application portal serving lakhs of users with secure OTP + JWT authentication, RBAC-based access control, and performance-optimized Angular architecture.',
-  tags: ['Angular', 'Java', 'JWT','REST APIs'],
-  // gradient: 'from-blue-600 to-cyan-600',
-  image: '/images/citizen-portal.png',
-  link: 'https://apps.mgov.gov.in',
-},
-{
-  title: 'NCS - National Career Service',
-  category: 'Frontend & UI/UX',
-  description: 'Built secure employer and jobseeker authentication flows with route guards, dynamic job posting modules, real-time validation (PAN, GST, Postal APIs), and responsive dashboard interfaces.',
-  tags: ['Angular', 'Java', 'RxJS', 'REST APIs'],
-  // gradient: 'from-indigo-600 to-violet-600',
-  image: '/images/ncs.png',
-  link:'https://betacloud.ncs.gov.in'
-},
-{
-  title: 'KNK Aquarium E-Commerce',
-  category: 'Full Stack Development',
-  description: 'Custom-built e-commerce platform with dynamic product catalog, OAuth authentication, admin dashboard, order tracking, and optimized MySQL-backed architecture.',
-  tags: ['React', 'Node.js', 'MySQL', 'OAuth'],
-  // gradient: 'from-emerald-600 to-teal-600',
-  image: '/images/knk.png',
-  link:'https://knkaquarium.com'
-},
+  {
+    title: 'Citizen Portal Gov.in',
+    category: 'Full Stack Development',
+    description: 'Scalable government application portal serving lakhs of users with secure OTP + JWT authentication, RBAC-based access control, and performance-optimized Angular architecture.',
+    tags: ['Angular', 'Java', 'JWT', 'REST APIs'],
+    // gradient: 'from-blue-600 to-cyan-600',
+    image: '/images/citizen-portal.png',
+    link: 'https://apps.mgov.gov.in',
+  },
+  {
+    title: 'NCS - National Career Service',
+    category: 'Frontend & UI/UX',
+    description: 'Built secure employer and jobseeker authentication flows with route guards, dynamic job posting modules, real-time validation (PAN, GST, Postal APIs), and responsive dashboard interfaces.',
+    tags: ['Angular', 'Java', 'RxJS', 'REST APIs'],
+    // gradient: 'from-indigo-600 to-violet-600',
+    image: '/images/ncs.png',
+    link: 'https://betacloud.ncs.gov.in'
+  }, {
+    title: 'OPSA - Office of the Principal Scientific Advisor',
+    category: 'Full Stack',
+    description: 'Developed a comprehensive full-stack solution for the Office of the Principal Scientific Advisor (OPSA), Government of India. The platform features a secure, role-based access control (RBAC) system, enabling seamless collaboration and data management for government stakeholders.',
+    tags: ['Next.js', 'JavaScript', 'Drupal', 'NIC'],
+    // gradient: 'from-indigo-600 to-violet-600',
+    image: '/images/opsa.png',
+    link: 'https://psa.gov.in'
+  },
+  {
+    title: 'KNK Aquarium E-Commerce',
+    category: 'Full Stack Development',
+    description: 'Custom-built e-commerce platform with dynamic product catalog, OAuth authentication, admin dashboard, order tracking, and optimized MySQL-backed architecture.',
+    tags: ['React', 'Node.js', 'MySQL', 'OAuth'],
+    // gradient: 'from-emerald-600 to-teal-600',
+    image: '/images/knk.png',
+    link: 'https://knkaquarium.com'
+  },
 
 ];
 
 export function Portfolio() {
   const { theme } = useTheme();
-  
+
   return (
-    <section className={`py-24 relative overflow-hidden transition-colors duration-500 ${
-      theme === 'dark'
-        ? 'bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950'
-        : 'bg-gradient-to-b from-gray-50 via-white to-gray-50'
-    }`}>
+    <section className={`py-24 relative overflow-hidden transition-colors duration-500 ${theme === 'dark'
+      ? 'bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950'
+      : 'bg-gradient-to-b from-gray-50 via-white to-gray-50'
+      }`}>
       {/* Background decoration */}
-      <div className={`absolute top-0 left-1/4 w-96 h-96 rounded-full blur-3xl ${
-        theme === 'dark' ? 'bg-violet-600/10' : 'bg-violet-400/20'
-      }`} />
-      <div className={`absolute bottom-0 right-1/4 w-96 h-96 rounded-full blur-3xl ${
-        theme === 'dark' ? 'bg-indigo-600/10' : 'bg-indigo-400/20'
-      }`} />
-      
+      <div className={`absolute top-0 left-1/4 w-96 h-96 rounded-full blur-3xl ${theme === 'dark' ? 'bg-violet-600/10' : 'bg-violet-400/20'
+        }`} />
+      <div className={`absolute bottom-0 right-1/4 w-96 h-96 rounded-full blur-3xl ${theme === 'dark' ? 'bg-indigo-600/10' : 'bg-indigo-400/20'
+        }`} />
+
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -58,21 +63,18 @@ export function Portfolio() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <div className={`inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border mb-4 ${
-            theme === 'dark'
-              ? 'bg-indigo-500/10 border-indigo-500/20 text-indigo-400'
-              : 'bg-indigo-100 border-indigo-200 text-indigo-700'
-          }`}>
+          <div className={`inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border mb-4 ${theme === 'dark'
+            ? 'bg-indigo-500/10 border-indigo-500/20 text-indigo-400'
+            : 'bg-indigo-100 border-indigo-200 text-indigo-700'
+            }`}>
             <span className="text-xs sm:text-sm font-semibold">Our Work</span>
           </div>
-          <h2 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 px-4 transition-colors duration-500 ${
-            theme === 'dark' ? 'text-white' : 'text-gray-900'
-          }`}>
+          <h2 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 px-4 transition-colors duration-500 ${theme === 'dark' ? 'text-white' : 'text-gray-900'
+            }`}>
             Featured <span className="bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent">Projects</span>
           </h2>
-          <p className={`text-base sm:text-lg md:text-xl max-w-2xl mx-auto px-4 transition-colors duration-500 ${
-            theme === 'dark' ? 'text-slate-400' : 'text-gray-600'
-          }`}>
+          <p className={`text-base sm:text-lg md:text-xl max-w-2xl mx-auto px-4 transition-colors duration-500 ${theme === 'dark' ? 'text-slate-400' : 'text-gray-600'
+            }`}>
             Explore our portfolio of successful digital transformations
           </p>
         </motion.div>
@@ -88,17 +90,15 @@ export function Portfolio() {
               className="group relative cursor-pointer"
               onClick={() => window.open(project.link, '_blank')}
             >
-              <div className={`relative h-full backdrop-blur-xl rounded-[24px] overflow-hidden shadow-lg border transition-all duration-300 ${
-                theme === 'dark'
-                  ? 'bg-slate-800/40 border-slate-700/50 hover:border-indigo-500/50 hover:shadow-indigo-500/20'
-                  : 'bg-white/80 border-gray-200 hover:border-indigo-500/50 hover:shadow-indigo-200/50'
-              }`}>
-                {/* Image */}
-                <div className={`relative h-64 overflow-hidden ${
-                  theme === 'dark' 
-                    ? 'bg-gradient-to-br from-slate-800 to-slate-900' 
-                    : 'bg-gradient-to-br from-gray-100 to-gray-200'
+              <div className={`relative h-full backdrop-blur-xl rounded-[24px] overflow-hidden shadow-lg border transition-all duration-300 ${theme === 'dark'
+                ? 'bg-slate-800/40 border-slate-700/50 hover:border-indigo-500/50 hover:shadow-indigo-500/20'
+                : 'bg-white/80 border-gray-200 hover:border-indigo-500/50 hover:shadow-indigo-200/50'
                 }`}>
+                {/* Image */}
+                <div className={`relative h-64 overflow-hidden ${theme === 'dark'
+                  ? 'bg-gradient-to-br from-slate-800 to-slate-900'
+                  : 'bg-gradient-to-br from-gray-100 to-gray-200'
+                  }`}>
                   <motion.div
                     whileHover={{ scale: 1.1 }}
                     transition={{ duration: 0.6 }}
@@ -110,7 +110,7 @@ export function Portfolio() {
                       className="w-full h-full object-cover"
                     />
                   </motion.div>
-                  
+
                   {/* Overlay on hover */}
                   <motion.div
                     initial={{ opacity: 0 }}
@@ -132,14 +132,12 @@ export function Portfolio() {
                   <div className={`text-sm font-semibold bg-gradient-to-r  bg-clip-text text-transparent mb-2`}>
                     {project.category}
                   </div>
-                  <h3 className={`text-2xl font-bold mb-3 transition-colors duration-500 ${
-                    theme === 'dark' ? 'text-white' : 'text-gray-900'
-                  }`}>
+                  <h3 className={`text-2xl font-bold mb-3 transition-colors duration-500 ${theme === 'dark' ? 'text-white' : 'text-gray-900'
+                    }`}>
                     {project.title}
                   </h3>
-                  <p className={`mb-4 leading-relaxed transition-colors duration-500 ${
-                    theme === 'dark' ? 'text-slate-400' : 'text-gray-600'
-                  }`}>
+                  <p className={`mb-4 leading-relaxed transition-colors duration-500 ${theme === 'dark' ? 'text-slate-400' : 'text-gray-600'
+                    }`}>
                     {project.description}
                   </p>
 
@@ -148,11 +146,10 @@ export function Portfolio() {
                     {project.tags.map((tag, tagIndex) => (
                       <span
                         key={tagIndex}
-                        className={`px-3 py-1 text-xs font-semibold rounded-full border transition-colors duration-200 ${
-                          theme === 'dark'
-                            ? 'bg-slate-700/50 text-slate-300 border-slate-600/50 hover:border-indigo-500/50 hover:bg-indigo-500/10'
-                            : 'bg-gray-100 text-gray-700 border-gray-300 hover:border-indigo-500/50 hover:bg-indigo-50'
-                        }`}
+                        className={`px-3 py-1 text-xs font-semibold rounded-full border transition-colors duration-200 ${theme === 'dark'
+                          ? 'bg-slate-700/50 text-slate-300 border-slate-600/50 hover:border-indigo-500/50 hover:bg-indigo-500/10'
+                          : 'bg-gray-100 text-gray-700 border-gray-300 hover:border-indigo-500/50 hover:bg-indigo-50'
+                          }`}
                       >
                         {tag}
                       </span>
