@@ -49,7 +49,7 @@ export function Navbar() {
               className={`text-xl font-bold transition-colors duration-500 ${theme === "dark" ? "text-white" : "text-gray-900"
                 }`}
             >
-              Frame & <span className="text-indigo-400">Code</span>
+              FrameN<span className="text-indigo-400">code</span>
             </span>
           </motion.div>
 

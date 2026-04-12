@@ -66,7 +66,7 @@ export function Footer() {
                 <span className="text-white font-bold text-2xl">D</span>
               </div>
               <span className="text-2xl font-bold">
-                Frame & <span className="text-indigo-400">Code</span>
+                FrameN<span className="text-indigo-400">code</span>
               </span>
             </motion.div>
             <p
@@ -143,7 +143,7 @@ export function Footer() {
             className={`text-sm transition-colors duration-500 ${theme === "dark" ? "text-slate-500" : "text-gray-600"
               }`}
           >
-            © {currentYear} DigitalAgency. All rights reserved.
+            © {currentYear} FrameNcode. All rights reserved.
           </motion.p>
 
           {/* Social links */}

@@ -31,7 +31,7 @@ export default function App() {
         <div id="about">
           <WhyChooseUs />
         </div>
-        <Testimonials />
+        {/* <Testimonials /> */}
         <div id="contact">
           <ContactUs />
         </div>
